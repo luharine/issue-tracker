@@ -53,8 +53,8 @@ export let arr=[]
   return (
     <div className='add-issue'>
         <form onSubmit={handleSubmit}>
-            <label>Description <input onChange={(event)=>{setDescription(event.target.value);}} type= "text" placeholder='Describe the issue' value={description}/></label>
-      <label> Assigned to
+            <label>Description<input onChange={(event)=>{setDescription(event.target.value);}} type= "text" placeholder='Describe the issue' value={description}/></label>
+      <label> Assigned to :
       {/* <select  onChange={(event)=>setAssignedTo=event.target.value}  name="dev" id="dev"> 
            <option value="Names">None</option>
             <option value="Ankit">Ankit</option>
@@ -64,7 +64,7 @@ export let arr=[]
       </select> */}
       <input onChange={(event)=>setAssignedTo(event.target.value)} type= "text" placeholder='Assigned to' value={AssignedTo}/>
       </label>
-<label> Priority  
+<label> Priority : 
 <input onChange={(event)=>setPriority(event.target.value)} type= "text" placeholder='Priority' value={priority}/>
 {/* <select onChange={(event)=>setPriority=(event.target.value)} name="priority" id="priorty"> 
 <option value="None">None</option>
