@@ -11,10 +11,29 @@ export let arr=[]
   let [priority, setPriority] = useState('');
   let [AssignedTo,setAssignedTo]=useState('');
   let [flag,setFlag]=useState(false);
+  let[fl,setfl]=useState(false)
 
   const handleSubmit = event => {
     
-   let obj = {
+    
+   
+    if(description==='' || priority==='' || AssignedTo==='')
+    {      
+      console.log("enter something");
+      setfl(true);
+      setTimeout(() => {
+        setfl(false);
+        }, 1000);
+        event.preventDefault();
+      return;
+    }
+
+
+
+
+
+
+    let obj = {
       'description':description,
       'priority':priority,
       'AssignedTo':AssignedTo
@@ -28,6 +47,7 @@ export let arr=[]
     
   console.log(arr);
     setFlag(true);
+    //setArrlen(arr.length);
    
 
    
@@ -45,23 +65,13 @@ export let arr=[]
     setPriority('');
     setAssignedTo('');
    
-    
-    
-    
-    
-  };
+};
 
 
-  
+const [AddIssue,setAddIssue] = useState(true)
 
-
-
-  
-
-
-
-    const [AddIssue,setAddIssue] = useState(true)
   return (
+    
     <div className='add-issue'>
         <form onSubmit={handleSubmit}>
             <label>Description<input onChange={(event)=>{setDescription(event.target.value);}} type= "text" placeholder='Describe the issue' value={description}/></label>
@@ -90,6 +100,7 @@ export let arr=[]
 
         </form> 
         { flag && <p>Issue added!</p>}
+        {fl && <p style={ {color:'red'}}>please enter the data before submitting!!</p>}
   
        
          
