@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import './AddIssue.css'
 import CurrentIssue from '../CurrentIssue/CurrentIssue';
 export let arr=[]
@@ -9,6 +10,7 @@ export let arr=[]
   let [description, setDescription] = useState('');
   let [priority, setPriority] = useState('');
   let [AssignedTo,setAssignedTo]=useState('');
+  let [flag,setFlag]=useState(false);
 
   const handleSubmit = event => {
     
@@ -24,19 +26,28 @@ export let arr=[]
     arr.push(obj);
     console.log('handleSubmit ran');
     
-  console.log(arr)
-    
+  console.log(arr);
+    setFlag(true);
    
 
    
     console.log(description);
     console.log(priority);
     console.log(AssignedTo);
-   
+    
+
+    setTimeout(() => {
+      setFlag(false);
+      }, 3000);
+    
 
     setDescription('');
     setPriority('');
     setAssignedTo('');
+   
+    
+    
+    
     
   };
 
@@ -76,12 +87,15 @@ export let arr=[]
 </select> */}
 </label>
 <button type = "submit" onClick={()=>handleSubmit()}>ADD ISSUE</button>
+
         </form> 
+        { flag && <p>Issue added!</p>}
   
+       
          
 
 
-    </div>
+    </div> 
   )
 }
 export default AddIssue
