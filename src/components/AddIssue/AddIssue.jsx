@@ -58,7 +58,7 @@ export let arr=[]
 
     setTimeout(() => {
       setFlag(false);
-      }, 3000);
+      }, 2000);
     
 
     setDescription('');
